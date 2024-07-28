@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Choice</title>
+    <link rel="stylesheet" href="store.css">
+
+</head>
+<body>
+    <header>
+        <h1>Smart Choice</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="cart" id="cartCountElement">Cart (0)</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <div class="product-card">
+                <img src="images/listerine.png" alt="Listerine Mouthwash">
+                <h3>Listerine Mouthwash</h3>
+                <p>Freshen your breath and keep your mouth feeling clean with Listerine!</p>
+                <p>Price: $4.60</p>
+                <button onclick="addToCart('listerine')">Add to Cart</button>
+                <button onclick="goToProductPage('listerine')">View more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/tissue-paper.jpg" alt="Tissue Paper">
+                <h3>Soft Tissue Paper</h3>
+                <p>Stay clean and comfy with this soft and gentle tissue paper.*we are not responsible for if you xylophagia*</p>
+                <p>Price: $5</p>
+                <button onclick="addToCart('tissue-paper')">Add to Cart</button>
+                <button onclick="goToProductPage('tissue-paper')">View more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/chocolate-bar.png" alt="Chocolate Bar">
+                <h3>Delicious Chocolate Bar</h3>
+                <p>Indulge in a sweet treat with this creamy and tasty chocolate bar!*may not include rat posion*</p>
+                <p>Price: $2</p>
+                <button onclick="addToCart('chocolate-bar')">Add to Cart</button>
+                <button onclick="goToProductPage('chocolate-bar')">View more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/chips.png" alt="Chips">
+                <h3>Crunchy Potato Chips</h3>
+                <p>Satisfy your snack cravings with these crispy and flavorful chips!</p>
+                <p>Price: $3</p>
+                <button onclick="addToCart('chips')">Add to Cart</button>
+                <button onclick="goToProductPage('chips')">View more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/gummies.png" alt="Gummies">
+                <h3>Fruity Gummies</h3>
+                <p>Enjoy a chewy and flavorful treat with these assorted fruit gummies! *saftey not guaranteed*</p>
+                <p>Price: $4.50</p>
+                <button onclick="addToCart('gummies')">Add to Cart</button>
+                <button onclick="goToProductPage('gummies')">View more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/soda.png" alt="Soda">
+                <h3>Refreshing Soda</h3>
+                <p>Quench your thirst with a bubbly and refreshing soda! *we are not accountable if you explode*</p>
+                <p>Price: $10</p>
+                <button onclick="addToCart('soda')">Add to Cart</button>
+                <button onclick="goToProductPage('soda')">View more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/celeste.jpg" alt="celeste">
+                <h3>Celeste game</h3>
+                <p>ever wanted to play the best game in the world? give celeste a joyride</p>
+                <p>Price: $26.77</p>
+                <p><strong>sponsered</strong></p>
+                <button onclick="GoToOfficial('celeste')">go to steam</button>
+            </div>
+        </section>
+
+        <section class="product-details">
+            </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Smart Choice</p>
+    </footer>
+
+    <script src="store.js"></script>
+</body>
+</html>
