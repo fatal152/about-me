@@ -122,3 +122,22 @@ body {
 .discordd:hover, .yootoob:hover, .twooter:hover {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
 }
+
+
+.blogBox {
+    background-color: rgb(53, 53, 53);
+    max-width: 400px;
+    max-height: 350px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.15s;
+}
+
+.blogBox:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+.blog1pic {
+    border-radius: 30px;
+}

@@ -141,7 +141,7 @@ p {
     left: 50%; /* Position at 50% from left */
     -ms-transform: translateY(-50%) translateX(-50%); /* Center horizontally and vertically for IE */
     transform: translateY(-50%) translateX(-50%); /* Center horizontally and vertically */
-    padding: 30px;
+    padding: 15px;
     border-radius: 10px;
     text-align: center;
     transition: box-shadow 0.15s;
@@ -194,6 +194,7 @@ p {
     padding-bottom: 10px;
     padding-right: 5px;
     padding-left: 5px;
+    
     transition: opacity 0.15s;
 }
 
