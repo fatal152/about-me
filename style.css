@@ -141,7 +141,7 @@ p {
     left: 50%; /* Position at 50% from left */
     -ms-transform: translateY(-50%) translateX(-50%); /* Center horizontally and vertically for IE */
     transform: translateY(-50%) translateX(-50%); /* Center horizontally and vertically */
-    padding: 10px;
+    padding: 30px;
     border-radius: 10px;
     text-align: center;
     transition: box-shadow 0.15s;
@@ -180,7 +180,7 @@ p {
 .menu {
     background-color: rgb(72, 72, 72);
     border-radius: 5px;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -235,4 +235,5 @@ p {
 .buttons-mtab:hover {
     opacity: 0.8;
 }
+
 
