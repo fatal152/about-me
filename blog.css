@@ -145,4 +145,5 @@ body {
 
 .blog1pic {
     border-radius: 30px;
+    object-fit: contain;
 }
