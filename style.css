@@ -1,4 +1,6 @@
-
+.body {
+    font-family: Arial, sans-serif, Helvetica;
+}
 
 .adwa {
     color: rgb(255, 255, 255);
@@ -237,4 +239,22 @@ p {
     opacity: 0.8;
 }
 
+
+.CheckButton {
+    text-decoration: none;
+    background-color: rgb(110, 110, 110);
+    color: white;
+    border: 0px;
+    max-height: auto;
+    max-width: 300px;
+    height: 50px;
+    font-size: large;
+    font-weight: bold;
+    transition: opacity 0.15s;
+}
+
+
+.CheckButton:hover {
+    opacity: 0.8;
+}
 

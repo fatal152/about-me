@@ -97,7 +97,7 @@ body {
 }
 
 .blog-post h2 {
-    font-size: 32px;  /* Increased font size */
+    font-size: 32px;  
 }
 
 .socials {
@@ -133,8 +133,8 @@ body {
 }
 
 .blogBox-link {
-    text-decoration: none; /* Remove default link styling */
-    color: inherit; /* Inherit text color */
+    text-decoration: none; 
+    color: inherit; 
 }
 
 .blogBox:hover {
@@ -142,17 +142,17 @@ body {
 }
 
 .blogpic {
-    width: 100%; /* Make the image fit the width of its container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 395px; /* Limit the maximum width */
-    max-height: 300px; /* Limit the maximum height */
+    width: 100%; 
+    height: auto; 
+    max-width: 395px; 
+    max-height: 300px; 
     border-radius: 30px;
     object-fit: contain;
 }
 
 @media (max-width: 600px) {
     .blogBox {
-        max-width: 100%; /* Make the blog box fit the width of its container on mobile */
-        padding: 10px; /* Adjust padding for mobile */
+        max-width: 100%; 
+        padding: 10px; 
     }
 }
