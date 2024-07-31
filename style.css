@@ -250,11 +250,12 @@ p {
     width: auto;
     font-size: large;
     font-weight: bold;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 
 .CheckButton:hover {
+    opacity: 0.6;
     transform: scale(1.1);
 }
 
