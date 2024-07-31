@@ -247,6 +247,7 @@ p {
     border: 0px;
     max-height: auto;
     max-width: 300px;
+    border-radius: 4px;
     height: 50px;
     font-size: large;
     font-weight: bold;
@@ -258,3 +259,11 @@ p {
     opacity: 0.8;
 }
 
+
+
+@media (max-width: 600px) {
+    .CheckButton, .buttons-mtab {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
