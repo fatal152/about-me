@@ -247,23 +247,23 @@ p {
     border: 0px;
     border-radius: 4px;
     height: 50px;
-    width: auto;
+    width: 100%; 
+    max-width: 300px; 
     font-size: large;
     font-weight: bold;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    box-sizing: border-box; 
 }
-
 
 .CheckButton:hover {
     opacity: 0.6;
     transform: scale(1.1);
 }
 
-
-
 @media (max-width: 600px) {
-    .CheckButton, .buttons-mtab {
-        max-width: 100%;
+    .CheckButton {
+        width: 90vw; 
         padding: 10px;
+        font-size: medium; 
     }
 }
