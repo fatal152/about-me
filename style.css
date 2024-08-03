@@ -263,6 +263,18 @@ p {
     transform: scale(1.1);
 }
 
+
+.warning {
+    position: fixed;
+    bottom: 5px; 
+    right: 10px; 
+    color: rgb(78, 78, 78); 
+    font-style: italic;
+}
+
+
+
+
 @media (max-width: 600px) {
     .CheckButton {
         width: 90vw; 
