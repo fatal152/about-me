@@ -90,13 +90,12 @@ body {
     background-color: rgb(72, 72, 72);
     padding: 20px;
     border-radius: 10px;
-    display: flex; /* Use flexbox layout */
-    gap: 20px; /* Add space between blog boxes */
-    justify-content: center; /* Center the blog boxes */
-    flex-wrap: wrap-reverse; /* Allow wrapping on small screens */
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap-reverse; 
 }
 
-.blog-post {
+a.blogBox-link:nth-child(2) > div:nth-child(1) {
     margin-bottom: 20px;
 }
 
