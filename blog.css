@@ -90,6 +90,10 @@ body {
     background-color: rgb(72, 72, 72);
     padding: 20px;
     border-radius: 10px;
+    display: flex; /* Use flexbox layout */
+    gap: 20px; /* Add space between blog boxes */
+    justify-content: center; /* Center the blog boxes */
+    flex-wrap: wrap-reverse; /* Allow wrapping on small screens */
 }
 
 .blog-post {
@@ -130,6 +134,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     transition: all 0.15s;
+    flex: 1; /* Allow the boxes to grow and shrink */
 }
 
 .blogBox-link {
@@ -142,10 +147,10 @@ body {
 }
 
 .blogpic {
-    width: 100%; 
+    width: 90%; 
     height: auto; 
     max-width: 395px; 
-    max-height: 300px; 
+    max-height: 250px; 
     border-radius: 30px;
     object-fit: contain;
 }
@@ -154,5 +159,10 @@ body {
     .blogBox {
         max-width: 100%; 
         padding: 10px; 
+    }
+
+    .blogpic {
+        max-width: 100%; 
+        padding: 10px;
     }
 }
