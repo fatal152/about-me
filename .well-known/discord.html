@@ -6,8 +6,15 @@
     <title>Rickroll Surprise!</title>
 </head>
 <body>
-    <audio src="fatal152/about-me/Sounds/Rick-Roll-Sound-Effect.mp3" autoplay loop>
-        Your browser does not support the audio element.
-    </audio>
+    <audio id="rickrollAudio" src="/Sounds/Rick-Roll-Sound-Effect.mp3" loop></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('rickrollAudio');
+            audio.play().catch(function(error) {
+                console.log('Autoplay prevented: ', error);
+            });
+        });
+    </script>
 </body>
 </html>
