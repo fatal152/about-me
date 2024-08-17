@@ -4,15 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rickroll Surprise!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000;
+            color: #fa0;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #fa0;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <audio id="rickrollAudio" src="/Sounds/Rick-Roll-Sound-Effect.mp3" loop></audio>
+    <button id="playButton">Click to Begin</button>
+
+    <audio id="rickrollAudio" src="fatal152/about-me/Sounds/Rick-Roll-Sound-Effect.mp3" loop></audio>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('playButton').addEventListener('click', function() {
             var audio = document.getElementById('rickrollAudio');
             audio.play().catch(function(error) {
-                console.log('Autoplay prevented: ', error);
+                console.error('Audio playback failed:', error);
             });
         });
     </script>
