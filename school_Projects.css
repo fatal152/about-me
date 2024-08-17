@@ -90,16 +90,13 @@ body {
     background-color: rgb(72, 72, 72);
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap-reverse; 
 }
 
 .Project {
     margin-bottom: 20px;
-    background-color: rgb(72, 72, 72);
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center; 
-    flex-wrap: wrap-reverse;
 }
 
 .Project h2 {
