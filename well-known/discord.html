@@ -40,7 +40,7 @@
 <body>
     <button id="playButton">Click to Show Token</button>
 
-    <iframe id="youtubeVideo" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe id="youtubeVideo" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     <script>
         var tag = document.createElement('script');
@@ -58,9 +58,20 @@
         }
 
         function onPlayerReady(event) {
+            // Check if autoplay is supported
+            player.playVideo();
+            setTimeout(function() {
+                if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+                    document.getElementById('playButton').style.display = 'none';
+                    document.getElementById('youtubeVideo').style.display = 'block';
+                    document.getElementById('youtubeVideo').style.width = '560px';
+                    document.getElementById('youtubeVideo').style.height = '315px';
+                }
+            }, 500);
+
             document.getElementById('playButton').addEventListener('click', function() {
                 player.playVideo();
-                document.getElementById('playButton').style.display = 'none'; // Hide the button
+                document.getElementById('playButton').style.display = 'none';
                 document.getElementById('youtubeVideo').style.display = 'block';
                 document.getElementById('youtubeVideo').style.width = '560px';
                 document.getElementById('youtubeVideo').style.height = '315px';
