@@ -60,6 +60,7 @@
         function onPlayerReady(event) {
             document.getElementById('playButton').addEventListener('click', function() {
                 player.playVideo();
+                document.getElementById('playButton').style.display = 'none'; // Hide the button
                 document.getElementById('youtubeVideo').style.display = 'block';
                 document.getElementById('youtubeVideo').style.width = '560px';
                 document.getElementById('youtubeVideo').style.height = '315px';
