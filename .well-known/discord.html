@@ -29,20 +29,42 @@
         button:hover {
             padding: 100px;
         }
+
+        #youtubeVideo {
+            display: none;
+            width: 0;
+            height: 0;
+        }
     </style>
 </head>
 <body>
     <button id="playButton">Click to Show Token</button>
 
-    <audio id="rickrollAudio" src="/Sounds/Rick-Roll-Sound-Effect.mp3" loop></audio>
+    <iframe id="youtubeVideo" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     <script>
-        document.getElementById('playButton').addEventListener('click', function() {
-            var audio = document.getElementById('rickrollAudio');
-            audio.play().catch(function(error) {
-                console.error('Audio playback failed:', error);
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtubeVideo', {
+                events: {
+                    'onReady': onPlayerReady
+                }
             });
-        });
+        }
+
+        function onPlayerReady(event) {
+            document.getElementById('playButton').addEventListener('click', function() {
+                player.playVideo();
+                document.getElementById('youtubeVideo').style.display = 'block';
+                document.getElementById('youtubeVideo').style.width = '560px';
+                document.getElementById('youtubeVideo').style.height = '315px';
+            });
+        }
     </script>
 </body>
 </html>
