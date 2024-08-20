@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="darkreader-lock">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/41372dc103.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="Heading">To-Do List</h1>
+    </div>
+    
+    <div class="Box_of_troubles">
+        <div class="To-Do" id="Troubles">
+            <h2>TO DO</h2>
+                <div class="Inputarea">
+                    <input type="text" class="TextBox" id="InputBox" placeholder="Add your troubles">
+                    <button class="enter" onclick="addTask()">Add</button>
+                    <button class="enter" id="AddingToTheList">Clear</button>
+                </div>
+            
+        </div>
+        <div class="Done">
+            <h2>Done</h2>
+        </div>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>
