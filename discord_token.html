@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click to reveal token</title>
+    <title>Click to Reveal Token</title>
     <style>
         body {
             display: flex;
@@ -14,7 +15,41 @@
             background-color: #000;
             color: #fa0;
             font-family: Arial, sans-serif;
+            overflow: hidden;
+            cursor: none;
         }
+
+        h1 {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5rem;
+            color: #fa0;
+            animation: colorCycle 3s linear infinite;
+        }
+
+        @keyframes colorCycle {
+            0% {
+                color: #fa0;
+            }
+
+            25% {
+                color: #f0f;
+            }
+
+            50% {
+                color: #0ff;
+            }
+
+            75% {
+                color: #f00;
+            }
+
+            100% {
+                color: #fa0;
+            }
+        }
+
         button {
             font-size: 20px;
             padding: 10px 20px;
@@ -23,26 +58,105 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: padding 0.3s ease;
+            transition: all 0.3s ease;
+            animation: shakeButton 2s infinite;
+            outline: none;
+        }
+
+        @keyframes shakeButton {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
         }
 
         button:hover {
             padding: 100px;
+            background-color: #ff0;
+            transform: rotate(360deg);
         }
 
         #youtubeVideo {
             display: none;
             width: 0;
             height: 0;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease, width 1s ease, height 1s ease;
+        }
+
+        #hiddenMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #0f0;
+            animation: revealText 1s forwards;
+        }
+
+        @keyframes revealText {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes moveCursor {
+            0% {
+                top: 0;
+                left: 0;
+            }
+
+            100% {
+                top: 100%;
+                left: 100%;
+            }
+        }
+
+        #customCursor {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fa0;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: moveCursor 5s infinite alternate ease-in-out;
         }
     </style>
 </head>
+
 <body>
+    <div id="customCursor"></div>
+    <h1>Click the Button to Reveal the Token</h1>
     <button id="playButton">Click to Show Token</button>
 
-    <iframe id="youtubeVideo" src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <iframe id="youtubeVideo"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1&modestbranding=1&controls=0"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <div id="hiddenMessage">You just got Rickrolled! 😆</div>
 
     <script>
+        document.body.addEventListener('mousemove', function (e) {
+            var cursor = document.getElementById('customCursor');
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.clientX + 'px';
+        });
+
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -52,31 +166,29 @@
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('youtubeVideo', {
                 events: {
-                    'onReady': onPlayerReady
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
                 }
             });
         }
 
         function onPlayerReady(event) {
-            // Check if autoplay is supported
-            player.playVideo();
-            setTimeout(function() {
-                if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-                    document.getElementById('playButton').style.display = 'none';
-                    document.getElementById('youtubeVideo').style.display = 'block';
-                    document.getElementById('youtubeVideo').style.width = '560px';
-                    document.getElementById('youtubeVideo').style.height = '315px';
-                }
-            }, 500);
-
-            document.getElementById('playButton').addEventListener('click', function() {
+            document.getElementById('playButton').addEventListener('click', function () {
                 player.playVideo();
                 document.getElementById('playButton').style.display = 'none';
                 document.getElementById('youtubeVideo').style.display = 'block';
                 document.getElementById('youtubeVideo').style.width = '560px';
                 document.getElementById('youtubeVideo').style.height = '315px';
+                document.getElementById('youtubeVideo').style.opacity = 1;
             });
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.ENDED) {
+                document.getElementById('hiddenMessage').style.display = 'block';
+            }
         }
     </script>
 </body>
+
 </html>
