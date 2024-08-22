@@ -13,68 +13,85 @@
             height: 100vh;
             margin: 0;
             background-color: #000;
-            color: #fa0;
-            font-family: Arial, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             overflow: hidden;
-            cursor: none;
+            user-select: none;
+            position: relative;
         }
 
         h1 {
             position: absolute;
             top: 20px;
             left: 20px;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #fa0;
-            animation: colorCycle 3s linear infinite;
+            animation: glitch 1s infinite;
+            z-index: 1000;
         }
 
-        @keyframes colorCycle {
+        @keyframes glitch {
             0% {
-                color: #fa0;
+                text-shadow: 2px 2px #f00, -2px -2px #00f;
             }
 
             25% {
-                color: #f0f;
+                text-shadow: -2px -2px #0f0, 2px 2px #f0f;
             }
 
             50% {
-                color: #0ff;
+                text-shadow: 2px -2px #ff0, -2px 2px #0ff;
             }
 
             75% {
-                color: #f00;
+                text-shadow: -2px 2px #f00, 2px -2px #00f;
             }
 
             100% {
-                color: #fa0;
+                text-shadow: 2px 2px #fa0, -2px -2px #00fa;
             }
         }
 
         button {
-            font-size: 20px;
-            padding: 10px 20px;
-            background-color: #fa0;
+            font-size: 30px;
+            padding: 20px 40px;
+            background: linear-gradient(45deg, #fa0, #ff0, #f00);
+            background-size: 200% 200%;
             color: #000;
-            border: none;
-            border-radius: 5px;
+            border: 3px solid #fff;
+            border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
-            animation: shakeButton 2s infinite;
-            outline: none;
+            animation: gradientShift 3s infinite, shake 0.5s infinite;
+            position: relative;
+            z-index: 1000;
         }
 
-        @keyframes shakeButton {
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes shake {
             0%,
             100% {
                 transform: translateX(0);
             }
 
             25% {
-                transform: translateX(-5px);
+                transform: translateX(-10px);
             }
 
             50% {
-                transform: translateX(5px);
+                transform: translateX(10px);
             }
 
             75% {
@@ -83,58 +100,101 @@
         }
 
         button:hover {
-            padding: 100px;
-            background-color: #ff0;
-            transform: rotate(360deg);
+            transform: scale(1.5) rotate(180deg);
+            background: linear-gradient(45deg, #0ff, #f0f, #ff0);
+            background-size: 300% 300%;
         }
 
         #youtubeVideo {
             display: none;
             width: 0;
             height: 0;
-            margin-top: 20px;
             opacity: 0;
-            transition: opacity 1s ease, width 1s ease, height 1s ease;
+            margin-top: 20px;
+            border: 10px solid #fa0;
+            box-shadow: 0 0 20px #f00, 0 0 40px #0ff, 0 0 60px #ff0;
+            transition: opacity 2s ease, width 1s ease, height 1s ease, box-shadow 2s ease;
         }
 
         #hiddenMessage {
             display: none;
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 20px;
             color: #0f0;
-            animation: revealText 1s forwards;
+            animation: revealText 2s forwards, textPulse 2s infinite;
         }
 
         @keyframes revealText {
             0% {
                 opacity: 0;
+                transform: translateY(50px);
             }
 
             100% {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @keyframes moveCursor {
-            0% {
-                top: 0;
-                left: 0;
+        @keyframes textPulse {
+            0%,
+            100% {
+                text-shadow: 0 0 5px #fa0, 0 0 10px #f0f;
             }
 
-            100% {
-                top: 100%;
-                left: 100%;
+            50% {
+                text-shadow: 0 0 20px #0ff, 0 0 40px #ff0;
             }
         }
 
         #customCursor {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #fa0;
+            width: 30px;
+            height: 30px;
+            background-color: #ff0;
             border-radius: 50%;
             pointer-events: none;
-            animation: moveCursor 5s infinite alternate ease-in-out;
+            animation: cursorPulse 2s infinite alternate;
+        }
+
+        @keyframes cursorPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px #f00, 0 0 20px #fa0;
+            }
+
+            100% {
+                transform: scale(1.5);
+                box-shadow: 0 0 20px #0ff, 0 0 40px #ff0;
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff0;
+            top: -10px;
+            border-radius: 50%;
+            animation: fall 5s infinite linear;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confettiRain {
+            0%,
+            100% {
+                transform: translateY(-100vh);
+            }
+
+            50% {
+                transform: translateY(100vh);
+            }
         }
     </style>
 </head>
@@ -142,7 +202,7 @@
 <body>
     <div id="customCursor"></div>
     <h1>Click the Button to Reveal the Token</h1>
-    <button id="playButton">Click to Show Token</button>
+    <button id="playButton">Show Token</button>
 
     <iframe id="youtubeVideo"
         src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&autoplay=1&modestbranding=1&controls=0"
@@ -180,6 +240,7 @@
                 document.getElementById('youtubeVideo').style.width = '560px';
                 document.getElementById('youtubeVideo').style.height = '315px';
                 document.getElementById('youtubeVideo').style.opacity = 1;
+                triggerConfetti();
             });
         }
 
@@ -187,6 +248,26 @@
             if (event.data == YT.PlayerState.ENDED) {
                 document.getElementById('hiddenMessage').style.display = 'block';
             }
+        }
+
+        function triggerConfetti() {
+            for (var i = 0; i < 100; i++) {
+                var confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.backgroundColor = getRandomColor();
+                document.body.appendChild(confetti);
+            }
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
         }
     </script>
 </body>
