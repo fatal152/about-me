@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 5dvh;
+}
+
+#canvas1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(7, 0, 3);
+}
+
+.projects-container {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Fade in for the container */
+}
+
+.projects-container.show {
+    opacity: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px); /* Start small and lower */
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-5px); /* Grow larger and move up */
+    }
+    70% {
+        transform: scale(0.95) translateY(5px); /* Shrink slightly and move down */
+    }
+    100% {
+        transform: scale(1) translateY(0); /* End at normal size */
+    }
+}
+
+.individual-project-selector-only {
+    color: rgb(255, 156, 222);
+    background-color: rgba(176, 11, 105, 0.3);
+    width: 80%;
+    height: 20dvh;
+    border-radius: 15px; /* More rounded corners */
+    text-align: justify;
+    padding: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    margin: 10px auto; /* Center alignment */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Distribute space between items */
+    opacity: 0; /* Start hidden */
+    transform: scale(0.8) translateY(30px); /* Start smaller and lower */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* General scaling adjustments for different screen sizes */
+@media (max-width: 1200px) {
+    .icon-only p {
+        font-size: 12dvh; /* Reduce icon size */
+    }
+
+    .visit-location-button-only a {
+        font-size: 2rem; /* Adjust button font size */
+        padding: 12px 20px; /* Adjust padding for button */
+    }
+
+    .description-only p {
+        font-size: 0.875rem; /* Maintain text size but adjust line height */
+        line-height: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .icon-only p {
+        font-size: 10dvh; /* Further reduce icon size */
+    }
+
+    .visit-location-button-only a {
+        font-size: 1.75rem; /* Adjust button font size */
+        padding: 10px 18px; /* Adjust padding for button */
+    }
+
+    .description-only {
+        max-width: 15rem; /* Narrow description width */
+    }
+}
+
+@media (max-width: 600px) {
+    .icon-only p {
+        font-size: 8dvh; /* Further reduce icon size */
+    }
+
+    .visit-location-button-only a {
+        font-size: 1.5rem; /* Adjust button font size */
+        padding: 8px 15px; /* Adjust padding for button */
+    }
+
+    .description-only {
+        max-width: 12rem; /* Further narrow description width */
+    }
+
+    .title-only p {
+        font-size: 1rem; /* Adjust title size */
+    }
+
+    .description-only p {
+        font-size: 0.75rem; /* Adjust description size */
+    }
+}
+
+/* Base Styles */
+
+.individual-project-selector-only.show {
+    animation: bounceIn 0.8s ease; /* Apply the bounce animation */
+    opacity: 1;
+    transform: none; /* Reset transform after animation */
+}
+
+.title-and-desc-only {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow title and description to grow and take available space */
+}
+
+.title-only p {
+    font-weight: 700; /* Bolder text */
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+.description-only p {
+    font-weight: 300; /* Lighter text */
+    font-size: .875rem;
+    line-height: 1rem;
+    margin-bottom: 2dvh;
+    color: #d89bbc;
+}
+
+.description-only {
+    max-width: 20rem;
+}
+
+.icon-only p {
+    margin-top: -2.2dvh;
+    padding-right: 5dvh;
+    font-size: 15dvh;
+}
+
+.visit-location-button-only {
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
+    align-items: center; /* Center button vertically */
+    padding-right: 2rem; /* Optional: add some padding to keep the button away from the edge */
+}
+
+.visit-location-button-only a {
+    padding: 15px 25px;
+    color: rgb(255, 156, 222);
+    background-color: rgba(176, 11, 105, 0.3);
+    font-size: 2.5rem; /* Adjusted for better mobile compatibility */
+    text-decoration: none;
+    border: 2px solid rgba(255, 156, 222, 0.6);
+    border-radius: 30px;  
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text/icon inside the button */
+}
+
+.visit-location-button-only a:hover {
+    background-color: rgba(255, 156, 222, 0.5); /* Slightly darker on hover */
+}

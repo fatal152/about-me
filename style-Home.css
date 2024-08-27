@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+#canvas1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(7, 0, 3);
+}
+
+.Container-for-intro-and-buttons {
+    position: relative;
+    z-index: 1; 
+    color: white; 
+    padding: 20px;
+    text-align: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.intro-container {
+    position: relative;
+    z-index: 2; 
+}
+
+.intro {
+    margin-top: 15dvh;
+}
+
+h1 {
+    font-size: 14dvh;
+}
+
+p {
+    font-size: 4dvh;
+}
+
+.intro-text-only {
+    z-index: 3;
+    color: rgb(255, 223, 246);
+    margin-bottom: 4dvh;
+}
+
+.bio-text-only {
+    z-index: 3; 
+    color: rgb(189, 155, 175) !important;
+    margin-bottom: 4dvh;
+}
+
+button {
+    padding: 10px;
+    color: rgb(255, 156, 222);
+    background-color: rgba(176, 11, 105, 0.3);
+    font-size: 4dvh;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10; /* Ensure the buttons stay above other elements */
+}
+
+button:hover {
+    background-color: rgba(255, 223, 246, 0.2);
+}
+
+.check-me-out-only {
+    opacity: 0;
+}
+
+.buttons {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000000;
+}
+
+.More-menu-only {
+    position: absolute;
+    top: 2dvh;
+    left: 2dvh;
+    margin: 0;
+    z-index: 100;
+    opacity: 0;
+}
+
+.developer-only {
+    color: #B00B69;
+}
+
+#more-buttons-container {
+    position: absolute;
+    top: calc(1dvh + 50px);
+    left: 1dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    width: 30dvh;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 100; /* Ensure these buttons stay above other elements */
+}
+
+#more-buttons-container.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.extra-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    background-color: rgba(176, 11, 105, 0.3);
+    border-radius: 10px;
+    color: rgb(255, 156, 222);
+    font-size: 3dvh; /* Slightly smaller than the main buttons */
+    transition: background-color 0.3s ease;
+}
+
+.extra-button:hover {
+    background-color: rgba(255, 223, 246, 0.2);
+}
