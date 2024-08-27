@@ -5,6 +5,12 @@
     font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
 #canvas1 {
     position: fixed;
     top: 0;
@@ -16,52 +22,66 @@
 
 .Container-for-intro-and-buttons {
     position: relative;
-    z-index: 1; 
-    color: white; 
-    padding: 20px;
+    z-index: 1;
+    color: white;
+    padding: 2vw; /* Smaller padding */
     text-align: center;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 100vw;
+    height: 100vh; /* Fill the entire screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    overflow: hidden;
 }
 
 .intro-container {
     position: relative;
-    z-index: 2; 
+    z-index: 2;
+    width: 90%; /* Limit width */
+    margin: 0 auto;
 }
 
 .intro {
-    margin-top: 15dvh;
+    margin-top: 0;
 }
 
 h1 {
-    font-size: 14dvh;
+    font-size: 6vw; /* Smaller font size */
+    max-width: 100%;
+    word-wrap: break-word;
+    margin-bottom: 2vh; /* Space between elements */
 }
 
 p {
-    font-size: 4dvh;
+    font-size: 2vw; /* Smaller font size */
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .intro-text-only {
     z-index: 3;
     color: rgb(255, 223, 246);
-    margin-bottom: 4dvh;
+    margin-bottom: 3vh;
 }
 
 .bio-text-only {
-    z-index: 3; 
+    z-index: 3;
     color: rgb(189, 155, 175) !important;
-    margin-bottom: 4dvh;
+    margin-bottom: 3vh;
 }
 
 button {
-    padding: 10px;
+    padding: 1vw; /* Smaller padding */
     color: rgb(255, 156, 222);
     background-color: rgba(176, 11, 105, 0.3);
-    font-size: 4dvh;
-    border-radius: 10px;
+    font-size: 2.5vw; /* Smaller font size */
+    border-radius: 1.5vw; /* Smaller border radius */
     transition: all 0.3s ease;
     position: relative;
-    z-index: 10; /* Ensure the buttons stay above other elements */
+    z-index: 10;
+    max-width: 80%; /* Limit width */
+    margin: 1vh auto; /* Center buttons */
 }
 
 button:hover {
@@ -73,24 +93,18 @@ button:hover {
 }
 
 .buttons {
-    position: relative;
-    z-index: 1;
     width: 100%;
-    height: 100%;
+    text-align: center;
 }
 
 .menu-container {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 2vh; /* Adjusted to vh for better scaling */
+    left: 2vh; /* Adjusted to vh for better scaling */
     z-index: 10000000;
 }
 
 .More-menu-only {
-    position: absolute;
-    top: 2dvh;
-    left: 2dvh;
-    margin: 0;
     z-index: 100;
     opacity: 0;
 }
@@ -101,16 +115,16 @@ button:hover {
 
 #more-buttons-container {
     position: absolute;
-    top: calc(1dvh + 50px);
-    left: 1dvh;
+    top: calc(1vh + 50px);
+    left: 1vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1vh; /* Smaller gap */
     opacity: 0;
     visibility: hidden;
-    width: 30dvh;
+    width: 20vw; /* Smaller width */
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 100; /* Ensure these buttons stay above other elements */
+    z-index: 100;
 }
 
 #more-buttons-container.visible {
@@ -119,16 +133,17 @@ button:hover {
 }
 
 .extra-button {
-    padding: 10px 20px;
+    padding: 1vw; /* Smaller padding */
     cursor: pointer;
     width: 100%;
     background-color: rgba(176, 11, 105, 0.3);
-    border-radius: 10px;
+    border-radius: 1vw; /* Smaller border radius */
     color: rgb(255, 156, 222);
-    font-size: 3dvh; /* Slightly smaller than the main buttons */
+    font-size: 2vw; /* Smaller font size */
     transition: background-color 0.3s ease;
 }
 
 .extra-button:hover {
     background-color: rgba(255, 223, 246, 0.2);
 }
+
