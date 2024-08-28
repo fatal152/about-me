@@ -107,6 +107,10 @@ button:hover {
 .More-menu-only {
     z-index: 100;
     opacity: 0;
+    text-align: center;
+    width: fit-content;
+    height: auto;
+    margin: 10px;
 }
 
 .developer-only {
@@ -115,14 +119,14 @@ button:hover {
 
 #more-buttons-container {
     position: absolute;
-    top: calc(1vh + 50px);
+    top: calc(6vh + 50px);
     left: 1vh;
     display: flex;
     flex-direction: column;
-    gap: 1vh; /* Smaller gap */
+    gap: 0.1vh; /* Smaller gap */
     opacity: 0;
     visibility: hidden;
-    width: 20vw; /* Smaller width */
+    width: 22vw; /* Smaller width */
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 100;
 }
