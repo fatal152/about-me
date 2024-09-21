@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.My-Stuff-buttons .button');
+    const buttons = document.querySelectorAll('a');
 
     buttons.forEach((button, index) => {
         setTimeout(() => {
