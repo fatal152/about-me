@@ -17,64 +17,18 @@
     z-index: -1; /* Ensure the canvas stays in the background */
 }
 
-/* Buttons Container */
-.buttons {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Space between buttons */
-    z-index: 1000; /* Ensure it is above other elements */
-}
-
-/* Button Styles */
-.buttons button {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(176, 11, 105, 0.3);
-    border: 2px solid rgba(255, 156, 222, 0.6);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    color: rgb(255, 156, 222);
-    font-size: 1.5rem;
-}
-
-.buttons button:hover {
-    background-color: rgba(255, 156, 222, 0.5);
-    transform: scale(1.1); /* Slightly enlarge on hover */
-}
-
-/* Icon Styling */
-.buttons button i {
-    pointer-events: none; /* Prevent interference with hover effect */
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 600px) {
-    .buttons button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.25rem; /* Adjust icon size */
-    }
-}
-
 /* Project Container */
 .projects-container {
     position: relative;
     width: 100%;
-    padding: 20px;
+    padding: 20px; /* Add padding around the container */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; /* Space between project cards */
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease; /* Fade in effect */
 }
 
 .projects-container.show {
@@ -87,55 +41,125 @@
     background-color: rgba(176, 11, 105, 0.3);
     width: 100%;
     max-width: 600px;
+    height: auto;
     min-height: 20dvh;
-    border-radius: 15px;
+    border-radius: 15px; /* Rounded corners */
     text-align: justify;
     padding: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    opacity: 0;
-    transform: scale(0.8) translateY(30px);
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Space between icon and text */
+    opacity: 0; /* Start hidden */
+    transform: scale(0.8) translateY(30px); /* Start smaller and lower */
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .individual-project-selector-only.show {
-    animation: bounceIn 0.8s ease;
+    animation: bounceIn 0.8s ease; /* Apply the bounce animation */
     opacity: 1;
-    transform: none;
+    transform: none; /* Reset transform after animation */
 }
 
 /* Bounce Animation */
 @keyframes bounceIn {
     0% {
         opacity: 0;
-        transform: scale(0.8) translateY(20px);
+        transform: scale(0.8) translateY(20px); /* Start small and lower */
     }
     50% {
         opacity: 1;
-        transform: scale(1.05) translateY(-5px);
+        transform: scale(1.05) translateY(-5px); /* Grow larger and move up */
     }
     70% {
-        transform: scale(0.95) translateY(5px);
+        transform: scale(0.95) translateY(5px); /* Shrink slightly and move down */
     }
     100% {
-        transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0); /* End at normal size */
     }
 }
 
-/* Media Queries for Cards */
+/* Icon Styling */
+.icon-only p {
+    font-size: 10dvh;
+    margin: 0 20px;
+}
+
+/* Text and Description Container */
+.title-and-desc-only {
+    flex-grow: 1; /* Allow text to grow and take available space */
+    padding-right: 20px;
+}
+
+.title-only p {
+    font-weight: 700; /* Bolder text */
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.description-only p {
+    font-weight: 300; /* Lighter text */
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #d89bbc;
+    margin-top: 1rem;
+}
+
+/* Visit Button */
+.visit-location-button-only a {
+    padding: 10px 20px;
+    color: rgb(255, 156, 222);
+    background-color: rgba(176, 11, 105, 0.3);
+    font-size: 2rem;
+    text-decoration: none;
+    border: 2px solid rgba(255, 156, 222, 0.6);
+    border-radius: 30px;  
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text/icon inside the button */
+}
+
+.visit-location-button-only a:hover {
+    background-color: rgba(255, 156, 222, 0.5); /* Slightly darker on hover */
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 900px) {
-    .individual-project-selector-only {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    .icon-only p {
+        font-size: 8dvh; /* Reduce icon size */
+    }
+
+    .visit-location-button-only a {
+        font-size: 1.5rem; /* Adjust button font size */
+        padding: 8px 15px; /* Adjust padding for button */
+    }
+
+    .title-only p {
+        font-size: 1.5rem; /* Adjust title size */
+    }
+
+    .description-only p {
+        font-size: 0.875rem; /* Adjust description size */
     }
 }
 
 @media (max-width: 600px) {
-    .individual-project-selector-only {
-        padding: 10px;
+    .icon-only p {
+        font-size: 6dvh; /* Further reduce icon size */
+    }
+
+    .visit-location-button-only a {
+        font-size: 1.25rem; /* Adjust button font size */
+        padding: 5px 10px; /* Adjust padding for button */
+    }
+
+    .title-only p {
+        font-size: 1.25rem; /* Further adjust title size */
+    }
+
+    .description-only p {
+        font-size: 0.75rem; /* Further adjust description size */
     }
 }
