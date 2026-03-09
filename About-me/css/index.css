@@ -1,0 +1,61 @@
+body{
+    background:black;
+    overflow:hidden;
+}
+
+p {
+    color: rgb(0, 0, 0);
+    font-family: verdana;
+}
+
+.star{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    opacity:0.4;
+    pointer-events:none;
+    box-shadow:0 0 4px rgba(255,255,255,0.5);
+}
+
+.shootingstar{
+    position:absolute;
+    width:220px;
+    height:2px;
+
+    background:linear-gradient(
+        to right,
+        rgba(255,255,255,1),
+        rgba(255,255,255,0.6),
+        rgba(255,255,255,0)
+    );
+
+    filter:blur(0.6px);
+
+    transform:rotate(-25deg); /* less steep */
+
+    animation:shoot 1.6s linear forwards;
+}
+
+.shootingstar::after{
+    content:"";
+    position:absolute;
+    left:-3px;
+    top:-1px;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:white;
+    box-shadow:0 0 8px white;
+}
+
+@keyframes shoot{
+    from{
+        transform:translate(0,0) rotate(-25deg);
+        opacity:1;
+    }
+
+    to{
+        transform:translate(-900px,350px) rotate(-25deg); /* less vertical drop */
+        opacity:0;
+    }
+}
